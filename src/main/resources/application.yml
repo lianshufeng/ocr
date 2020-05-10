@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+
+ocr:
+  datasetPath: "./tessdata"
+
+
+
+
+logging:
+  file:
+    name: logs/StreamController.log
+
