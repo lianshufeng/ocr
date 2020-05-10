@@ -55,8 +55,19 @@ RUN set -xe \
 	&& make install 
 
 
+#设置环境变量
+RUN set -xe \
+	&& echo "" >> /etc/profile \
+	&& echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PAYT:/usr/local/lib" >> /etc/profile \
+	&& echo "export LIBLEPT_HEADERSDIR=/usr/local/include" >> /etc/profile \
+	&& echo "export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig" >> /etc/profile \
+	#刷新环境变量
+	&& source /etc/profile \
+
+
 #安装 Tesseract
 RUN set -xe \
+	&& source /etc/profile \
 	&& mkdir -p /tmp/tesseract \
 	&& cd /tmp/tesseract \
 	&& wget https://github.com/tesseract-ocr/tesseract/archive/4.1.1.zip -O tesseract-4.1.1.zip \
