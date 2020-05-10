@@ -41,7 +41,7 @@ RUN set -xe \
 
 
 #安装依赖库
-RUN yum --nogpgcheck -y install libstdc++ autoconf automake libtool pkg-config gcc gcc-c++ make libjpeg-devel libpng-devel libtiff-devel zlib-devel autoconf-archive
+RUN yum --nogpgcheck -y install libstdc++ autoconf automake libtool pkg-config gcc gcc-c++ make libjpeg-devel libpng-devel libtiff-devel zlib-devel 
 
 
 #安装 leptonica
