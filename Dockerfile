@@ -21,6 +21,7 @@ RUN set -xe \
 	&& mkdir -p $JAR_FILE \
 	&& cp /tmp/$GIT_NAME/target/$FILE_NAME $JAR_FILE/$FILE_NAME \
 	&& rm -rf /tmp/$GIT_NAME \
+	&& rm -rf /root/.m2/repository
 	
 	#刷新环境变量
 	&& source /etc/profile 
