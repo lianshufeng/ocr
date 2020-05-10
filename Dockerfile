@@ -38,6 +38,41 @@ RUN set -xe \
 	&& echo "export LANG=en_US.UTF-8" >> /opt/bootstrap.sh \
 	&& echo "echo \${ENTRYPOINT}|awk '{run=\$0;system(run)}'" >> /opt/bootstrap.sh 
 
+
+
+#安装依赖库
+RUN yum --nogpgcheck -y install libstdc++ autoconf automake libtool pkg-config gcc gcc-c++ make libjpeg-devel libpng-devel libtiff-devel zlib-devel
+
+
+#安装 leptonica
+RUN set -xe \
+	&& mkdir -p /tmp/leptonica \
+	&& cd /tmp/leptonica \
+	&& wget http://www.leptonica.org/source/leptonica-1.79.0.tar.gz \
+	&& tar -xvf leptonica-1.76.0.tar.gz \
+	&& cd leptonica-1.76.0/ \
+	&& ./configure \
+	&& make -j2 \
+	&& sudo make install \
+	&& sudo ldconfig 
+
+
+#安装 Tesseract
+RUN set -xe \
+	&& mkdir -p /tmp/tesseract \
+	&& cd /tmp/tesseract \
+	&& wget https://github.com/tesseract-ocr/tesseract/archive/4.1.1.zip -O tesseract-4.1.1.zip \
+	&& unzip tesseract-4.1.1.zip && mv tesseract-4.1.1 tesseract \
+	&& cd tesseract \
+	&& ./autogen.sh \
+	&& ./configure \
+	&& make -j2 \
+	&& sudo make install \
+	&& sudo ldconfig  
+
+
+
+
 #启动项
 ENTRYPOINT  sh /opt/bootstrap.sh 
 

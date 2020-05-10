@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  springboot:
+    image: registry.cn-chengdu.aliyuncs.com/1s/ocr
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./tessdata:/opt/jar/tessdata"
+    working_dir: /opt/jar
+    container_name: ocr
+    restart: always      
