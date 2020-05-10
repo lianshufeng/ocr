@@ -9,4 +9,5 @@ services:
       - "./tessdata:/opt/jar/tessdata"
     working_dir: /opt/jar
     container_name: ocr
-    restart: always      
+    restart: always
+    
