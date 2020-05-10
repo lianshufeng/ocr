@@ -53,8 +53,8 @@ RUN set -xe \
 	&& cd leptonica-1.79.0/ \
 	&& ./configure \
 	&& make -j2 \
-	&& sudo make install \
-	&& sudo ldconfig 
+	&& make install \
+	&& ldconfig 
 
 
 #安装 Tesseract
@@ -67,8 +67,8 @@ RUN set -xe \
 	&& ./autogen.sh \
 	&& ./configure \
 	&& make -j2 \
-	&& sudo make install \
-	&& sudo ldconfig  
+	&& make install \
+	&& ldconfig  
 
 
 
