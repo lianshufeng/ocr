@@ -49,8 +49,8 @@ RUN set -xe \
 	&& mkdir -p /tmp/leptonica \
 	&& cd /tmp/leptonica \
 	&& wget http://www.leptonica.org/source/leptonica-1.79.0.tar.gz \
-	&& tar -xvf leptonica-1.76.0.tar.gz \
-	&& cd leptonica-1.76.0/ \
+	&& tar -xvf leptonica-1.79.0.tar.gz \
+	&& cd leptonica-1.79.0/ \
 	&& ./configure \
 	&& make -j2 \
 	&& sudo make install \
