@@ -11,3 +11,6 @@ services:
     container_name: ocr
     restart: always
     
+# mkdir -p tessdata
+# wget -O tessdata/chi_sim.traineddata  https://github.com/tesseract-ocr/tessdata_best/raw/master/chi_sim.traineddata 
+# wget -O tessdata/chi_sim.traineddata  https://github.com/tesseract-ocr/tessdata_best/raw/master/chi_sim_vert.traineddata 
