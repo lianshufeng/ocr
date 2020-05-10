@@ -39,36 +39,11 @@ RUN set -xe \
 	&& echo "echo \${ENTRYPOINT}|awk '{run=\$0;system(run)}'" >> /opt/bootstrap.sh 
 
 
-
 #安装依赖库
-RUN yum --nogpgcheck -y install libstdc++ autoconf automake libtool pkg-config gcc gcc-c++ make libjpeg-devel libpng-devel libtiff-devel zlib-devel
+RUN yum install --nogpgcheck -y epel-release
+RUN yum install --nogpgcheck -y  tesseract-devel leptonica-devel
 
 
-#安装 leptonica
-RUN set -xe \
-	&& mkdir -p /tmp/leptonica \
-	&& cd /tmp/leptonica \
-	&& wget http://www.leptonica.org/source/leptonica-1.79.0.tar.gz \
-	&& tar -xvf leptonica-1.79.0.tar.gz \
-	&& cd leptonica-1.79.0/ \
-	&& ./configure \
-	&& make -j2 \
-	&& make install \
-	&& ldconfig 
-
-
-#安装 Tesseract
-RUN set -xe \
-	&& mkdir -p /tmp/tesseract \
-	&& cd /tmp/tesseract \
-	&& wget https://github.com/tesseract-ocr/tesseract/archive/4.1.1.zip -O tesseract-4.1.1.zip \
-	&& unzip tesseract-4.1.1.zip && mv tesseract-4.1.1 tesseract \
-	&& cd tesseract \
-	&& ./autogen.sh \
-	&& ./configure \
-	&& make -j2 \
-	&& make install \
-	&& ldconfig  
 
 
 
