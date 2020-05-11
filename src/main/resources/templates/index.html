@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Ocr图形文本识别</title>
+</head>
+<body>
+<!--<p th:text="'Hello, ' + ${name} + '!'"/>-->
+<p>请选择图片并提交到服务器进行OCR识别</p>
+<form th:action="@{/ocr}" method="post" enctype="multipart/form-data">
+    <input type="file" name="img"/>
+    <input type="submit"/>
+</form>
+
+</body>
+</html>

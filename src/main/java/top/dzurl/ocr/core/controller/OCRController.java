@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 import top.dzurl.ocr.core.helper.TesseractHelper;
 import top.dzurl.ocr.core.model.OCRModel;
@@ -56,5 +57,12 @@ public class OCRController {
         return tesseractHelper.doOCR(inputStream);
     }
 
+
+    @RequestMapping({"index", "/", ""})
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView("index.html");
+        modelAndView.addObject("name", System.currentTimeMillis());
+        return modelAndView;
+    }
 
 }
